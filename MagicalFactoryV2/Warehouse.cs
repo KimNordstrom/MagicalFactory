@@ -13,7 +13,9 @@ namespace MagicalFactoryV2
             new Material("Steel"),
             new Material("Steel"),
             new Material("Wood"),
-            new Material("Rubber")
+            new Material("Rubber"),
+            new Material("Glass"),
+            new Material("Glass"),
         };
         public List<Material> wTruck = new List<Material>();
         public Warehouse()
@@ -33,13 +35,16 @@ namespace MagicalFactoryV2
         }
         public void ListTruck()
         {
-            Console.WriteLine("Truck");
-            Console.WriteLine("---------------------------");
-            foreach (var item in wTruck)
+            if(wTruck.Count > 0)
             {
-                Console.WriteLine(item.MaterialType);
-            }
-            Console.WriteLine("---------------------------");
+                Console.WriteLine("Truck");
+                Console.WriteLine("---------------------------");
+                foreach (var item in wTruck)
+                {
+                    Console.WriteLine(item.MaterialType);
+                }
+                Console.WriteLine("---------------------------");
+            }  
         }
         public void AddToTruck(string material)
         {
@@ -51,6 +56,13 @@ namespace MagicalFactoryV2
                     wTruck.Add(new Material($"{item.MaterialType}"));
                     break;
                 }
+            }
+        }
+        public void AddToInventory(List<Material> materials)
+        {
+            foreach (var item in wInventory)
+            {
+                wInventory.Add(item);
             }
         }
     }

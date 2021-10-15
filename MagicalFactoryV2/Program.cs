@@ -12,10 +12,12 @@ while (!done)
     Console.WriteLine("'Send' to send truck or 'Quit' to quit program.");
     Console.Write("Enter Material: ");
     var userInput = Console.ReadLine();
+
     if (userInput.ToLower() == "send")
     {
         Console.WriteLine("Sending...");
-        myFactory.CreateProduct(myWarehouse.wTruck);
+        var leftovers = myFactory.CreateProduct(myWarehouse.wTruck);
+        //myWarehouse.AddToInventory(leftovers);
     } else if(userInput.ToLower() == "quit")
     {
         done = true;
